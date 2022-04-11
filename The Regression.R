@@ -1,0 +1,174 @@
+b=read.csv("CPE_baseline household survey_cleaned.csv")
+names(b)
+
+library(glmmTMB)
+#modeling of AggreScoreb
+hist(b$AggreScoreb)
+m1<-glmmTMB(AggreScoreb~genda+age+edu+occu+relign+marital+havdog+howlong+
+              edudb+trncatcdog+trnholddog+dogbite+feardog+vacclastt,
+            data=b,family="nbinom2")
+summary(m1)
+rec<-resid(m1)
+plot(fitted(m1),rec)
+abline(0,0)
+
+hist(b$AggreScoreb)
+m2<-glmmTMB(AggreScoreb~genda+age+edu+occu+relign+marital+havdog+howlong+
+              trncatcdog+trnholddog+dogbite+feardog+vacclastt,
+            data=b,family="nbinom2")
+summary(m2)
+rec<-resid(m2)
+plot(fitted(m2),rec)
+abline(0,0)
+
+hist(b$AggreScoreb)
+m3<-glmmTMB(AggreScoreb~genda+age+edu+occu+relign+marital+howlong+
+              edudb+trncatcdog+trnholddog+dogbite+feardog+vacclastt,
+            data=b,family="nbinom2")
+summary(m3)
+rec<-resid(m3)
+plot(fitted(m3),rec)
+abline(0,0)
+
+m4<-glmmTMB(AggreScoreb~genda+age+edu+relign+marital+howlong+
+              edudb+trncatcdog+trnholddog+dogbite+vacclastt,
+            data=b,family="nbinom2")
+summary(m4)
+rec<-resid(m4)
+plot(fitted(m4),rec)
+abline(0,0)
+
+m5<-glmmTMB(AggreScoreb~genda+age+edu+relign+marital+howlong+
+              edudb+trnholddog+dogbite+vacclastt,
+            data=b,family="nbinom2")
+summary(m5)
+rec<-resid(m5)
+plot(fitted(m5),rec)
+abline(0,0)
+
+m6<-glmmTMB(AggreScoreb~genda+age+edu+relign+marital+howlong+
+              edudb+dogbite+vacclastt,
+            data=b,family="nbinom2")
+summary(m6)
+rec<-resid(m6)
+plot(fitted(m6),rec)
+abline(0,0)
+
+m7<-glmmTMB(AggreScoreb~genda+age+edu+relign+marital+
+              edudb+dogbite+vacclastt,
+            data=b,family="nbinom2")
+summary(m7)
+rec<-resid(m7)
+plot(fitted(m7),rec)
+abline(0,0)
+
+m8<-glmmTMB(AggreScoreb~genda+age+edu+relign+marital+edudb+howlong+
+              (edudb*howlong)+dogbite+vacclastt,
+            data=b,family="nbinom2")
+summary(m8)
+rec<-resid(m8)
+plot(fitted(m8),rec)
+abline(0,0)
+
+m9<-glmmTMB(AggreScoreb~genda+age+edu+relign+marital+edudb+howlong+
+              dogbite+vacclastt,
+            data=b,family="nbinom2")
+summary(m9)
+rec<-resid(m9)
+plot(fitted(m9),rec)
+abline(0,0)
+
+m10<-glmmTMB(AggreScoreb~genda+age+edu+relign+marital+edudb+
+               dogbite+vacclastt,
+             data=b,family="nbinom2")
+summary(m10)
+rec<-resid(m10)
+plot(fitted(m10),rec)
+abline(0,0)
+
+m11<-glmmTMB(AggreScoreb~genda+age+edu+marital+edudb+
+               dogbite+vacclastt,
+             data=b,family="nbinom2")
+summary(m11)
+rec<-resid(m11)
+plot(fitted(m11),rec)
+abline(0,0)
+
+m12<-glmmTMB(AggreScoreb~genda+age+edu+edudb+
+               dogbite+vacclastt,
+             data=b,family="nbinom2")
+summary(m12)
+rec<-resid(m12)
+plot(fitted(m12),rec)
+abline(0,0)
+
+m13<-glmmTMB(AggreScoreb~genda+age+edu+
+               dogbite+vacclastt,
+             data=b,family="nbinom2")
+summary(m13)
+rec<-resid(m13)
+plot(fitted(m13),rec)
+abline(0,0)
+
+m14<-glmmTMB(AggreScoreb~genda+age+edu+
+               vacclastt,
+             data=b,family="nbinom2")
+summary(m14)
+rec<-resid(m14)
+plot(fitted(m14),rec)
+abline(0,0)
+
+m1b<-glmmTMB(bodilangscore~genda+age+edu+occu+relign+marital+havdog+howlong+
+               edudb+trncatcdog+trnholddog+dogbite+feardog+vacclastt,
+             data=b,family="nbinom2")
+summary(m1b)
+rec<-resid(m1b)
+plot(fitted(m1b),rec)
+abline(0,0)
+
+#Transformation of estimates
+exp(1.405883)
+exp(0.285704)
+exp(0.005068)
+exp(0.126959)
+exp(-0.235773)
+
+#Calculation of the confidence intervals
+confint(m14)
+
+#calculation of the LRT
+m14<-glmmTMB(AggreScoreb~genda+age+edu+
+               vacclastt,
+             data=b,family="nbinom2")
+m14b<-glmmTMB(AggreScoreb~age+edu+
+                vacclastt,
+              data=b,family="nbinom2")
+anova(m14b, m14, test="LRT")
+
+
+m14<-glmmTMB(AggreScoreb~genda+age+edu+
+               vacclastt,
+             data=b,family="nbinom2")
+m14c<-glmmTMB(AggreScoreb~genda+edu+
+                vacclastt,
+              data=b,family="nbinom2")
+anova(m14c, m14, test="LRT")
+
+
+m14<-glmmTMB(AggreScoreb~genda+age+edu+
+               vacclastt,
+             data=b,family="nbinom2")
+m14d<-glmmTMB(AggreScoreb~genda+age+
+                vacclastt,
+              data=b,family="nbinom2")
+anova(m14d, m14, test="LRT")
+
+
+m14<-glmmTMB(AggreScoreb~genda+age+edu+
+               vacclastt,
+             data=b,family="nbinom2")
+m14e<-glmmTMB(AggreScoreb~genda+age+edu,
+              data=b,family="nbinom2")
+anova(m14e, m14, test="LRT")
+
+library(glmmTMB)
