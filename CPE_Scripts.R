@@ -46,7 +46,7 @@ ward_marital/n
 
 
 #######################################################
-# Do pre- and post-evaluation comparison
+
 names(fu)
 dim(fu)
 summary(fu)
@@ -225,6 +225,15 @@ mean(fu$limitinjuryscorenow)
 median(fu$limitinjuryscorenow)
 sd(fu$limitinjuryscorenow)
 
+
+m=read.csv("CPE_mean_tests.csv")
+names(m)
+summary(m)
+
+#Mann-Whitney test of means
+wilcox.test(m$bodilangscore, m$bodilangscorenow, paired = FALSE)
+wilcox.test(m$avoidattackscore, m$avoidatackscorenow, paired = FALSE)
+wilcox.test(m$limitinjuryscore, m$limitinjuryscore, paired = FALSE)
 
 
 library(glmmTMB)
