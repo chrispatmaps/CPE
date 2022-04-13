@@ -337,3 +337,123 @@ m14<-glmmTMB(AggreScoreb~genda+age+edu+
 m14e<-glmmTMB(AggreScoreb~genda+age+edu,
               data=b,family="nbinom2")
 anova(m14e, m14, test="LRT")
+
+
+##########the scripts below were copied from CPE_Baseline script, many of these analyses were not included in the results
+#other proportions
+ward_havdog <- table(bl$ward, bl$havdog)
+rownames(ward_havdog) <- c("kwihancha", "kyangasaga")
+ward_havdog
+ward_havdog/n
+prop.table(ward_havdog, margin = 1)
+
+
+ward_edudb <- table(bl$ward, bl$edudb)
+rownames(ward_edudb) <- c("kwihancha", "kyangasaga")
+ward_edudb
+ward_edudb/n
+
+ward_ratedbknw <- table(bl$ward, bl$ratedbknw)
+rownames(ward_ratedbknw) <- c("kwihancha", "kyangasaga")
+ward_ratedbknw
+ward_ratedbknw/n
+
+ward_comwitdog <- table(bl$ward, bl$comwitdog)
+rownames(ward_comwitdog) <- c("kwihancha", "kyangasaga")
+ward_comwitdog
+ward_comwitdog/n
+
+ward_recdogcom <- table(bl$ward, bl$recdogcom)
+rownames(ward_recdogcom) <- c("kwihancha", "kyangasaga")
+ward_recdogcom
+ward_recdogcom/n
+
+ward_trncatcdog <- table(bl$ward, bl$trncatcdog)
+rownames(ward_trncatcdog) <- c("kwihancha", "kyangasaga")
+ward_trncatcdog
+ward_trncatcdog/n
+
+ward_ratecatcdog <- table(bl$ward, bl$ratecatcdog)
+rownames(ward_ratecatcdog) <- c("kwihancha", "kyangasaga")
+ward_ratecatcdog
+ward_ratecatcdog/n
+
+ward_easycatcdog <- table(bl$ward, bl$easycatcdog)
+rownames(ward_easycatcdog) <- c("kwihancha", "kyangasaga")
+ward_easycatcdog
+ward_easycatcdog/n
+
+ward_knwcatcdog <- table(bl$ward, bl$knwcatcdog)
+rownames(ward_knwcatcdog) <- c("kwihancha", "kyangasaga")
+ward_knwcatcdog
+ward_knwcatcdog/n
+
+ward_trnholddog <- table(bl$ward, bl$trnholddog)
+rownames(ward_trnholddog) <- c("kwihancha", "kyangasaga")
+ward_trnholddog
+ward_trnholddog/n
+
+ward_easyholddog <- table(bl$ward, bl$easyholddog)
+rownames(ward_easyholddog) <- c("kwihancha", "kyangasaga")
+ward_easyholddog
+ward_easyholddog/n
+
+ward_crrctcalmdog <- table(bl$ward, bl$crrctcalmdog)
+rownames(ward_crrctcalmdog) <- c("kwihancha", "kyangasaga")
+ward_crrctcalmdog
+ward_crrctcalmdog/n
+
+ward_crrctsmlldog <- table(bl$ward, bl$crrctsmlldog)
+rownames(ward_crrctsmlldog) <- c("kwihancha", "kyangasaga")
+ward_crrctsmlldog
+ward_crrctsmlldog/n
+
+ward_crrctbigdog <- table(bl$ward, bl$crrctbigdog)
+rownames(ward_crrctbigdog) <- c("kwihancha", "kyangasaga")
+ward_crrctbigdog
+ward_crrctbigdog/n
+
+ward_dogbite <- table(bl$ward, bl$dogbite)
+rownames(ward_dogbite) <- c("kwihancha", "kyangasaga")
+ward_dogbite
+ward_dogbite/n
+
+ward_feardog <- table(bl$ward, bl$feardog)
+rownames(ward_feardog) <- c("kwihancha", "kyangasaga")
+ward_feardog
+ward_feardog/n
+
+ward_avoidatack <- table(bl$ward, bl$avoidatack)
+rownames(ward_avoidatack) <- c("kwihancha", "kyangasaga")
+ward_avoidatack
+ward_avoidatack/n
+
+ward_limitinjury <- table(bl$ward, bl$limitinjury)
+rownames(ward_limitinjury) <- c("kwihancha", "kyangasaga")
+ward_limitinjury
+ward_limitinjury/n
+
+ward_vaccrashes <- table(bl$ward, bl$vaccrashes)
+rownames(ward_vaccrashes) <- c("kwihancha", "kyangasaga")
+ward_vaccrashes
+ward_vaccrashes/n
+
+ward_vaccreprodc <- table(bl$ward, bl$vaccreprodc)
+rownames(ward_vaccreprodc) <- c("kwihancha", "kyangasaga")
+ward_vaccreprodc
+ward_vaccreprodc/n
+
+ward_vaccbark <- table(bl$ward, bl$vaccbark)
+rownames(ward_vaccbark) <- c("kwihancha", "kyangasaga")
+ward_vaccbark
+ward_vaccbark/n
+
+ward_vaccdie <- table(bl$ward, bl$vaccdie)
+rownames(ward_vaccdie) <- c("kwihancha", "kyangasaga")
+ward_vaccdie
+ward_vaccdie/n
+
+ward_vacclastt <- table(bl$ward, bl$vacclastt)
+rownames(ward_vacclastt) <- c("kwihancha", "kyangasaga")
+ward_vacclastt
+ward_vacclastt/n
