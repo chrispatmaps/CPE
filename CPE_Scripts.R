@@ -13,6 +13,7 @@ n = nrow(bl); n
 table(bl$genda)/n
 # Have a chat with Joel about prepping a table in R 
 
+#1
 # demography
 ward_genda <- table(bl$ward, bl$genda)
 rownames(ward_genda) <- c("kwihancha", "kyangasaga")
@@ -51,12 +52,11 @@ names(fu)
 dim(fu)
 summary(fu)
 
-#the 919 issue is resolved, is number of data points from where i copied the codes as example, those codes are all deleted now
-
 
 #before and after comparison of variables: the proportions were first calculated for variables from baseline and followed by
 #those of follow up variables and then compared using the two proportions Z-test
 
+#2
 ########baseline variables
 #Table 2
 rashes <- table(bl$vaccrashes)
@@ -90,7 +90,6 @@ prop.table(crrctsmlldog)
 crrctbigdog <- table(bl$crrctbigdog)
 crrctbigdog
 prop.table(crrctbigdog)
-
 
 ########follow up variables
 #Table 2
@@ -126,7 +125,7 @@ crrctbigdognow <- table(fu$crrctbigdognow)
 crrctbigdognow
 prop.table(crrctbigdognow)
 
-
+#3
 #Fig 1a-d, baseline
 ratedb <- table(bl$ratedb)
 ratedb
@@ -161,6 +160,7 @@ limitinjurynow <- table(fu$limitinjurynow)
 limitinjurynow
 prop.table(limitinjurynow)
 
+#4
 #proportions comparisons for before and after engagement
 #Vaccine causes rashes
 #Table 2
@@ -190,6 +190,7 @@ prop.test(x=c(68,99), n=c(728,770), conf.level = 0.95)
 #limit injury when attacked
 prop.test(x=c(53,98), n=c(728,770), conf.level = 0.95)
 
+#5
 ########Central tendencies of scores; the difference means of these scores were also tested with Wilcoxon (Mann-Whitney) Test
 #Table 3
 #Baseline
@@ -225,7 +226,7 @@ mean(fu$limitinjuryscorenow)
 median(fu$limitinjuryscorenow)
 sd(fu$limitinjuryscorenow)
 
-
+#6
 m=read.csv("CPE_mean_tests.csv")
 names(m)
 summary(m)
@@ -235,7 +236,7 @@ wilcox.test(m$bodilangscore, m$bodilangscorenow, paired = FALSE)
 wilcox.test(m$avoidattackscore, m$avoidatackscorenow, paired = FALSE)
 wilcox.test(m$limitinjuryscore, m$limitinjuryscore, paired = FALSE)
 
-
+#7
 library(glmmTMB)
 #modeling of AggreScoreb
 hist(bl$AggreScoreb)
@@ -371,6 +372,7 @@ exp(-0.235773)
 #Calculation of the confidence intervals
 confint(m14)
 
+#8
 #calculation of the LRT
 m14<-glmmTMB(AggreScoreb~genda+age+edu+
                vacclastt,
